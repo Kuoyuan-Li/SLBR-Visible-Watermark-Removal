@@ -23,7 +23,6 @@ def is_dic(x):
     return type(x) == type([])
 
 
-
 def tensor2np(x, isMask=False):
     if isMask:
         if x.shape[1] == 1:
@@ -36,6 +35,7 @@ def tensor2np(x, isMask=False):
         x = (x * std + mean)*255
 		
     return x.numpy().transpose(0,2,3,1).astype(np.uint8)
+
 
 def save_output(inputs, preds, save_dir, img_fn, extra_infos=None,  verbose=False, alpha=0.5):
     outs = []

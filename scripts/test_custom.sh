@@ -6,7 +6,7 @@ MASK_MODE=res
 
 INPUT_SIZE=256
 NAME=slbr_v1
-TEST_DIR=/media/sda/Watermark
+TEST_DIR=/sample_images
 
 CUDA_VISIBLE_DEVICES=1 python3  test_custom.py \
   --name ${NAME} \

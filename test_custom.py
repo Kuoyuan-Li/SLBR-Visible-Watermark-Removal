@@ -12,7 +12,6 @@ from options import Options
 import torch.nn.functional as F
 
 
-
 def tensor2np(x, isMask=False):
     if isMask:
         if x.shape[1] == 1:
@@ -25,6 +24,7 @@ def tensor2np(x, isMask=False):
         x = (x * std + mean)*255
 		
     return x.numpy().transpose(0,2,3,1).astype(np.uint8)
+
 
 def save_output(inputs, preds, save_dir, img_fn, extra_infos=None,  verbose=False, alpha=0.5):
     outs = []
@@ -45,6 +45,7 @@ def save_output(inputs, preds, save_dir, img_fn, extra_infos=None,  verbose=Fals
         img_fn = os.path.split(img_fn)[-1]
         out_fn = os.path.join(save_dir, "{}{}".format(os.path.splitext(img_fn)[0], os.path.splitext(img_fn)[1]))
         cv2.imwrite(out_fn, outimg)
+
 
 def preprocess(file_path, img_size=512):
     img_J = cv2.imread(file_path)
@@ -105,10 +106,6 @@ def main(args):
                 save_dir= prediction_dir,
                 img_fn = fn
             )
-            
-            
-
-
 
 
 if __name__ == '__main__':
